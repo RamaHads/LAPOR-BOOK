@@ -17,16 +17,16 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -49,22 +49,21 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA18tGjSiVtfzvfb7jJg-OVk7I8EwK_oZw',
-    appId: '1:1025158976732:android:2bdc1e58c29e2c90329019',
-    messagingSenderId: '1025158976732',
-    projectId: 'lapor-book-acba3',
-    databaseURL: 'https://lapor-book-acba3-default-rtdb.firebaseio.com',
-    storageBucket: 'lapor-book-acba3.appspot.com',
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyBEmZXQ-r4Z0c84-S46wTAmtoMQoxZDD0c',
+    appId: '1:88556216006:web:1f28095ba7663d262341c7',
+    messagingSenderId: '88556216006',
+    projectId: 'lapor-book-cbf3c',
+    authDomain: 'lapor-book-cbf3c.firebaseapp.com',
+    storageBucket: 'lapor-book-cbf3c.appspot.com',
+    measurementId: 'G-SESNKJ7FCK',
   );
 
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyA9Bzr6d_X6XY5bXDkzU_2aQi9bnzMFQUg',
-    appId: '1:1025158976732:ios:d8c4624a301b35ad329019',
-    messagingSenderId: '1025158976732',
-    projectId: 'lapor-book-acba3',
-    databaseURL: 'https://lapor-book-acba3-default-rtdb.firebaseio.com',
-    storageBucket: 'lapor-book-acba3.appspot.com',
-    iosBundleId: 'com.example.laporBook',
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyB3Tpvt5LgW75YvNW2ETwNPYuBWpYqJjOU',
+    appId: '1:88556216006:android:a30c7d95b98e3a4e2341c7',
+    messagingSenderId: '88556216006',
+    projectId: 'lapor-book-cbf3c',
+    storageBucket: 'lapor-book-cbf3c.appspot.com',
   );
 }
